@@ -27,11 +27,18 @@ const zap: Omit<Card, "name"> = {
 	effect: { kind: "damage", amount: 1 },
 };
 
+const mmmSahur: Omit<Card, "name"> = {
+    type: "bot",
+    atk: 1, // set whatever attack stat is specified for your card
+    hp: { current: 6, max: 6 }, // set whatever HP is specified
+    status: [],
+};
 /** The master list of all cards in the game. Never mutated at runtime. */
 export const cards: Card[] = [
-	...range(10).map((n) => ({ ...duck, name: `Robot Duck ${n}` })),
+	...range(8).map((n) => ({ ...duck, name: `Robot Duck ${n}` })),
 	...range(25).map((n) => ({ ...repair, name: `Light Repair ${n}` })),
 	...range(25).map((n) => ({ ...zap, name: `Zap ${n}` })),
+	...range(2).map((n) => ({ ...mmmSahur, name: `MMM-Sahur ${n}` })), //amount in deck
 ];
 
 /** All card names, unique. */
