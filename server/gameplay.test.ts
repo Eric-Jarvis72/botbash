@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { cardByName } from "../shared/cards";
 import type { Game, GameCard, GamePlayer } from "../shared/types";
+import { resolveCombat } from "./gameplay";
+import type { Game } from "../shared/types";
 import {
 	beginGame,
 	drawPlayerToFive,
@@ -50,6 +52,61 @@ function expectGame(game: Game | null): Game {
 	if (!game) throw new Error("expected a game");
 	return game;
 }
+describe("MMM-Sahur special ability", () => {
+    it("increases MMM-Sahur's atk if it survives combat", () => {
+        const game: Game = {
+            id: "test-game",
+            phase: "combat",
+            turn: 1,
+            observers: [],
+            scrapPile: [],
+            submissions: {},
+            winner: null,
+            players: [
+                {
+                    name: "p1",
+                    starter: { name: "Starter", type: "bot", atk: 1, hp: { current: 1, max: 1 }, status: [] },
+                    deck: [],
+                    hand: [],
+                    board: [
+                        {
+                            name: "MMM-Sahur 0",
+                            type: "bot",
+                            atk: 1, 
+                            hp: { current: 3, max: 3 },
+                            status: [],
+                        },
+                        null,
+                        null,
+                    ],
+                },
+                {
+                    name: "p2",
+                    starter: { name: "Starter", type: "bot", atk: 1, hp: { current: 1, max: 1 }, status: [] },
+                    deck: [],
+                    hand: [],
+                    board: [
+                        null,
+                        null,
+                        { 
+                            name: "Robot Duck 0", 
+                            type: "bot", 
+                            atk: 1, 
+                            hp: { current: 5, max: 5 }, 
+                            status: [] 
+                        },
+                    ],
+                },
+            ],
+        };
+
+        // Run the combat resolution
+        resolveCombat(game);
+
+        // MMM-Sahur started with 1 atk, so surviving should boost it to 2
+        expect(game.players[0].board[0]?.atk).toBe(2);
+    });
+});
 
 describe("drawPlayerToFive", () => {
 	it("draws from the deck up to a full hand", () => {
