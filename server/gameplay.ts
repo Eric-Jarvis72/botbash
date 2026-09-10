@@ -238,7 +238,13 @@ export function resolveCombat(game: Game): "over" | "continue" {
 			}
 		}
 	}
-
+	for (const player of [a, b]) {
+			for (const bot of player.board) {
+				if (bot && bot.name.startsWith("MMM-Sahur")) {
+					bot.atk += 1;
+				}
+			}
+		}
 	const aBots = a.board.filter(Boolean).length;
 	const bBots = b.board.filter(Boolean).length;
 	if (aBots === 0 && bBots === 0) {

@@ -69,15 +69,15 @@ describe("MMM-Sahur special ability", () => {
                     deck: [],
                     hand: [],
                     board: [
-                        {
+                        null, // Slot 0: Empty
+                        {     // Slot 1: Center
                             name: "MMM-Sahur 0",
                             type: "bot",
                             atk: 1, 
                             hp: { current: 3, max: 3 },
                             status: [],
                         },
-                        null,
-                        null,
+                        null, // Slot 2: Empty
                     ],
                 },
                 {
@@ -86,15 +86,15 @@ describe("MMM-Sahur special ability", () => {
                     deck: [],
                     hand: [],
                     board: [
-                        null,
-                        null,
-                        { 
+                        null, // Slot 0: Empty
+                        {     // Slot 1: Center
                             name: "Robot Duck 0", 
                             type: "bot", 
                             atk: 1, 
                             hp: { current: 5, max: 5 }, 
                             status: [] 
                         },
+                        null, // Slot 2: Empty
                     ],
                 },
             ],
@@ -103,8 +103,8 @@ describe("MMM-Sahur special ability", () => {
         // Run the combat resolution
         resolveCombat(game);
 
-        // MMM-Sahur started with 1 atk, so surviving should boost it to 2
-        expect(game.players[0].board[0]?.atk).toBe(2);
+        // Check board[1] because we put the bot in the center slot
+        expect(game.players[0].board[1]?.atk).toBe(2);
     });
 });
 
