@@ -52,10 +52,10 @@ const mspaint: Omit<Card, "name"> = {
 /** The master list of all cards in the game. Never mutated at runtime. */
 export const cards: Card[] = [
 	...range(2).map((n) => ({ ...breadson, name: `Breadson ${n}` })),
-	...range(4).map((n) => ({ ...duck, name: `Robot Duck ${n}` })),
+	...range(12).map((n) => ({ ...duck, name: `Robot Duck ${n}` })),
 	...range(25).map((n) => ({ ...repair, name: `Light Repair ${n}` })),
 	...range(25).map((n) => ({ ...zap, name: `Zap ${n}` })),
-	...range(2).map((n) => ({ ...mmmSahur, name: `MMM-Sahur ${n}` })), //amount in deck
+	...range(4).map((n) => ({ ...mmmSahur, name: `MMM-Sahur ${n}` })), //amount in deck
 	...range(2).map((n) => ({ ...mspaint, name: `MS Paint Duck ${n}` })),
 ];
 
