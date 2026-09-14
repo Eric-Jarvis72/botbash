@@ -38,17 +38,25 @@ const zap: Omit<Card, "name"> = {
 
 const mmmSahur: Omit<Card, "name"> = {
     type: "bot",
-    atk: 1, // set whatever attack stat is specified for your card
-    hp: { current: 6, max: 6 }, // set whatever HP is specified
+    atk: 1, 
+    hp: { current: 6, max: 6 },
     status: [],
 };
+const mspaint: Omit<Card, "name"> = {
+	type: "bot",
+	atk: 1,
+	hp: { current: 12, max: 12 },
+	status: [],
+};
+
 /** The master list of all cards in the game. Never mutated at runtime. */
 export const cards: Card[] = [
 	...range(2).map((n) => ({ ...breadson, name: `Breadson ${n}` })),
-	...range(6).map((n) => ({ ...duck, name: `Robot Duck ${n}` })),
+	...range(4).map((n) => ({ ...duck, name: `Robot Duck ${n}` })),
 	...range(25).map((n) => ({ ...repair, name: `Light Repair ${n}` })),
 	...range(25).map((n) => ({ ...zap, name: `Zap ${n}` })),
 	...range(2).map((n) => ({ ...mmmSahur, name: `MMM-Sahur ${n}` })), //amount in deck
+	...range(2).map((n) => ({ ...mspaint, name: `MS Paint Duck ${n}` })),
 ];
 
 /** All card names, unique. */

@@ -5,9 +5,10 @@ export const CARD_BACK = "/images/card_back.jpg";
 const MAP: Record<string, string> = {
 	"Robot Duck": "/images/robot_duck.jpg",
 	"Light Repair": "/images/light_repair.jpg",
-    "Breadson": "/images/breadson.png",
+  "Breadson": "/images/breadson.png",
 	"Zap": "/images/zap.jpg",
 	"MMM-Sahur": "/images/MMM-Sahur.jpg",
+	"MS Paint Duck": "MS Paint Duck.png",
 };
 
 /** Maps a card name to its image URL, if one exists. */
