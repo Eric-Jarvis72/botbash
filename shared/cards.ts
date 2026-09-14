@@ -11,14 +11,12 @@ const duck: Omit<Card, "name"> = {
 	status: [],
 };
 
-
 const breadson: Omit<Card, "name"> = {
-    type: "bot",
-    atk: 3,
-    hp: { current: 4, max: 4},
-    status: []
+	type: "bot",
+	atk: 3,
+	hp: { current: 4, max: 4 },
+	status: [],
 };
-
 
 const repair: Omit<Card, "name"> = {
 	type: "action",
@@ -37,10 +35,10 @@ const zap: Omit<Card, "name"> = {
 };
 
 const mmmSahur: Omit<Card, "name"> = {
-    type: "bot",
-    atk: 1, 
-    hp: { current: 6, max: 6 },
-    status: [],
+	type: "bot",
+	atk: 1,
+	hp: { current: 6, max: 6 },
+	status: [],
 };
 const mspaint: Omit<Card, "name"> = {
 	type: "bot",
